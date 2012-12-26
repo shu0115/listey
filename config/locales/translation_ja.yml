@@ -1,0 +1,10 @@
+ja:
+  activerecord:
+    models:
+      task: "タスク"
+    attributes:
+      task:
+        content: "内容"
+        sort: "順番"
+        group_id: "グループ"
+        status: "ステータス"

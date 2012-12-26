@@ -48,7 +48,7 @@ gem "custom-template"
 gem "markdown-scaffold"
 
 # Utility
-# gem "action_args"
+gem "action_args"
 
 # App Server
 gem "thin"
@@ -91,3 +91,5 @@ group :production do
   gem "pg"
   gem "newrelic_rpm"
 end
+
+gem 'i18n_generators'

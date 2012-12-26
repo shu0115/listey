@@ -1,0 +1,23 @@
+
+<p>
+  <b>User:</b><%= @task.user_id %>
+</p>
+
+<p>
+  <b>Content:</b><%=raw show_markdown( @task.content ) %>
+</p>
+
+<p>
+  <b>Sort:</b><%= @task.sort %>
+</p>
+
+<p>
+  <b>Group:</b><%= @task.group_id %>
+</p>
+
+<p>
+  <b>Status:</b><%= @task.status %>
+</p>
+
+<%= link_to t( "menu.edit" ), edit_task_path( @task ) %>
+ | <%= link_to t( "menu.list" ), tasks_path %>

@@ -1,0 +1,39 @@
+
+<h1>Listing tasks</h1>
+
+<table>
+  <tr>
+    <th>ユーザ</th>
+    <th>内容</th>
+    <th>順番</th>
+    <th>グループ</th>
+    <th>ステータス</th>
+    <th>作成日時</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @tasks.each{ |task| %>
+  <tr>
+    <td><%= render partial: '/layouts/user_icon', locals: { user: task.user } %></td>
+    <td><%=raw show_markdown( task.content ) %></td>
+    <td><%= task.sort %></td>
+    <td><%= task.group_id %></td>
+    <td><%= task.status %></td>
+    <td><%= task.created_at.strftime("%Y/%m/%d %H:%M:%S") if task.created_at.present? %></td>
+    <td><%= link_to t( "menu.show" ), task_path( task ) %></td>
+    <td><%= link_to t( "menu.edit" ), edit_task_path( task ) %></td>
+    <td><%= link_to t( "menu.destroy" ), task_path( task ), method: :delete, data: { confirm: '本当に削除してよろしいですか？' } %></td>
+  </tr>
+<% } %>
+</table>
+
+<br />
+
+<%= link_to t( "menu.new" ), new_task_path %>
+
+<br />
+<br />
+
+<%= link_to t( "menu.top" ), :root %>

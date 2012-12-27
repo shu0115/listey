@@ -15,7 +15,8 @@
       <%# ログイン済み %>
       <li><%= render partial: '/layouts/user_icon', locals: { user: current_user } %></li>
       <li class="<%= params[:controller] == 'top' ? 'active' : '' %>"><%= link_to( "Top", root_path ) %></li>
-      <li class="<%= params[:controller] == 'tasks' ? 'active' : '' %>"><%= link_to( "Task", tasks_path ) %></li>
+      <li class="<%= (params[:controller] == 'tasks' and params[:status] != 'done') ? 'active' : '' %>"><%= link_to( "Task", tasks_path ) %></li>
+      <li class="<%= params[:status] == 'done' ? 'active' : '' %>"><%= link_to( "Done", tasks_path( status: "done" ) ) %></li>
       <li><%= link_to( "Logout", logout_path ) %></li>
     <% else %>
       <%# 未ログイン %>

@@ -3,8 +3,15 @@ class TasksController < ApplicationController
   #-------#
   # index #
   #-------#
-  def index
-    @tasks = Task.where( user_id: session[:user_id] ).includes( :user ).order( "tasks.sort ASC, tasks.created_at DESC" ).all
+  def index( status )
+    tasks = Task.scoped
+    tasks = tasks.where( user_id: session[:user_id] ).includes( :user ).order( "tasks.sort ASC, tasks.created_at DESC" )
+    if status.present?
+      tasks = tasks.where( status: status )
+    else
+#      tasks = tasks.where( "status != ?", "done" )
+    end
+    @tasks = tasks.all
   end
 
   #------#

@@ -92,4 +92,5 @@ group :production do
   gem "newrelic_rpm"
 end
 
+# Transration
 gem 'i18n_generators'

@@ -49,7 +49,8 @@ class TasksController < ApplicationController
     @task = Task.where( id: id, user_id: session[:user_id] ).first
 
     if @task.update_attributes( task )
-      redirect_to( task_path( @task ), notice: "Task was successfully updated." )
+#      redirect_to( task_path( @task ), notice: "Task was successfully updated." )
+      redirect_to( tasks_path, notice: "Task was successfully updated." )
     else
       render action: "edit"
     end

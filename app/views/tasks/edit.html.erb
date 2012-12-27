@@ -15,16 +15,6 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :user_id %><br />
-    <%= f.number_field :user_id %>
-  </div>
-
-  <div class="field">
-    <%= f.label :content %><br />
-    <%= f.text_area :content %>
-  </div>
-
-  <div class="field">
     <%= f.label :sort %><br />
     <%= f.number_field :sort %>
   </div>
@@ -37,6 +27,11 @@
   <div class="field">
     <%= f.label :status %><br />
     <%= f.text_field :status %>
+  </div>
+
+  <div class="field">
+    <%= f.label :content %><br />
+    <%= f.text_area :content, rows: 5, class: "span6" %>
   </div>
 
   <div class="actions">

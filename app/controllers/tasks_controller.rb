@@ -4,7 +4,7 @@ class TasksController < ApplicationController
   # index #
   #-------#
   def index
-    @tasks = Task.where( user_id: session[:user_id] ).includes( :user ).order( "tasks.created_at DESC" ).all
+    @tasks = Task.where( user_id: session[:user_id] ).includes( :user ).order( "tasks.sort ASC, tasks.created_at DESC" ).all
   end
 
   #------#

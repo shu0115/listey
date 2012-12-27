@@ -74,6 +74,7 @@ group :development do
   gem "sextant"
   gem "better_errors"
   gem "binding_of_caller"
+  gem 'meta_request', '0.2.0'
 end
 
 # Test AND Development

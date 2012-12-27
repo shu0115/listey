@@ -13,6 +13,7 @@
     <th></th>
     <th></th>
     <th></th>
+    <th></th>
   </tr>
 
 <% @tasks.each{ |task| %>
@@ -24,6 +25,7 @@
     <td><%= task.status %></td>
     <td><%= task.created_at.strftime("%Y/%m/%d %H:%M:%S") if task.created_at.present? %></td>
     <td><%= link_to "Done", task_path( id: task.id, task: { status: "done" } ), method: :put, data: { confirm: 'タスクを完了します。よろしいですか？' } %></td>
+    <td><%= link_to "Pending", task_path( id: task.id, task: { status: "pending" } ), method: :put, data: { confirm: 'タスクを保留します。よろしいですか？' } %></td>
     <td><%= link_to t( "menu.show" ), task_path( task ) %></td>
     <td><%= link_to t( "menu.edit" ), edit_task_path( task ) %></td>
     <td><%= link_to t( "menu.destroy" ), task_path( task ), method: :delete, data: { confirm: '本当に削除してよろしいですか？' } %></td>

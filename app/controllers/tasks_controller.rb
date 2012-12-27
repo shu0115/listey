@@ -9,7 +9,7 @@ class TasksController < ApplicationController
     if status.present?
       tasks = tasks.where( status: status )
     else
-#      tasks = tasks.where( "status != ?", "done" )
+      tasks = tasks.where( "status NOT IN( 'done', 'pending' )" )
     end
     @tasks = tasks.all
   end
